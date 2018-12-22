@@ -50,12 +50,11 @@ let save = () => {
 let retrieveFromDb = (id, callback) => {
   Review.find({ id: id }, function (err, data) {
     if (err) {
-      return console.log("ERROR at db");
-    }
-    else {
+      return console.log('ERROR at db');
+    } else {
       callback(data);
-    };
-  })
+    }
+  });
 };
 
 // save();

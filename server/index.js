@@ -9,10 +9,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + 'public'));
 
 app.get('/:listing_id/reviews', function (req, res) {
-  id = req.params.listing_id
+  id = req.params.listing_id;
   retrieveFromDb(id, (reviews) => {
-    res.send(reviews)
-  })
+    res.send(reviews);
+  });
 });
 
 const port = 8000;
