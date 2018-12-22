@@ -1,4 +1,5 @@
 var faker = require('faker');
+const save = require('../database/index.js').save;
 const fs = require('fs');
 
 var hostName = faker.name.findName;
@@ -43,12 +44,13 @@ const totalDataGenerator = () => {
   }
   return totalData;
 };
+
 totalDataGenerator();
-fs.writeFile('data.txt', JSON.stringify(totalData), (err, data) => {
+fs.writeFile('./database/data.txt', JSON.stringify(totalData), (err, data) => {
   if (err) {
     return console.log('Error in writing', err);
   }
-  console.log('Success!');
+  save();
 });
 
 

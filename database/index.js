@@ -10,7 +10,7 @@ mongoose.connect('mongodb://localhost/airbnb', { useNewUrlParser: true }, err =>
   console.log('Connected to MongoDB!');
 });
 
-let repoSchema = mongoose.Schema({
+let reviewSchema = mongoose.Schema({
   hostName: String,
   hostPicture: String,
   id: {
@@ -27,7 +27,7 @@ let repoSchema = mongoose.Schema({
   }]
 });
 
-let Repo = mongoose.model('Repo', repoSchema);
+let Review = mongoose.model('Review', reviewSchema);
 
 let save = () => {
   fs.readFile(path.resolve(__dirname, 'data.txt'), (err, data) => {
@@ -36,8 +36,8 @@ let save = () => {
     }
     const parsed = JSON.parse(data);
     parsed.forEach(data => {
-      var repoTosave = new Repo(data);
-      repoTosave.save((err) => {
+      var reviewTosave = new Review(data);
+      reviewTosave.save((err) => {
         if (err) {
           return console.log('Error in saving.', err);
         }
@@ -47,6 +47,18 @@ let save = () => {
   });
 };
 
-save();
+let retrieveFromDb = (id, callback) => {
+  Review.find({ id: id }, function (err, data) {
+    if (err) {
+      return console.log("ERROR at db");
+    }
+    else {
+      callback(data);
+    };
+  })
+};
+
+// save();
 
 module.exports.save = save;
+module.exports.retrieveFromDb = retrieveFromDb;
