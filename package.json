@@ -9,8 +9,7 @@
   "scripts": {
     "express": "nodemon server/index.js",
     "webpack": "webpack --watch",
-    "seed": "node database/seeding.js",
-    "database": "node database/index.js"
+    "seed": "node database/seeding.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
