@@ -27,3 +27,9 @@
 .reviewer-picture{
   border-radius: 50%;
 }
+
+.modal-dialog {
+  margin: 10px;
+  position: relative;
+  width: auto;
+}
