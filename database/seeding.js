@@ -8,6 +8,7 @@ var content = faker.lorem.paragraph;
 var hostComment = faker.lorem.paragraph;
 var reviewerName = faker.name.findName;
 var reviewerPicture = 'http://lorempixel.com/150/150/';
+var createdAt = faker.date.recent;
 
 var totalData = [];
 
@@ -16,14 +17,15 @@ const reviewGenerator = () => {
     content: content(),
     hostComment: hostComment(),
     reviewerName: reviewerName(),
-    reviewerPicture: reviewerPicture
+    reviewerPicture: reviewerPicture,
+    createdAt: createdAt()
   };
   return reviewObj;
 };
 
 const singleDataGenerator = (j) => {
   var reviewList = [];
-  for (var i = 0; i < 8; i++) {
+  for (var i = 0; i < 30; i++) {
     reviewItem = reviewGenerator();
     reviewList.push(reviewItem);
   }

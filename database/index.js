@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 
-
 mongoose.connect('mongodb://localhost/airbnb', { useNewUrlParser: true }, err => {
   if (err) {
     return console.log('Failed in connecting to MongoDB.');
@@ -24,6 +23,7 @@ let reviewSchema = mongoose.Schema({
     hostComment: String,
     reviewerName: String,
     reviewerPicture: String,
+    createdAt: { type: Date, required: true }
   }]
 });
 
