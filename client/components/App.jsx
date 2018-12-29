@@ -7,14 +7,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listing: []
+      reviews: []
     };
   }
 
   getReviews() {
     axios.get('/1/reviews')
       .then((data) => {
-        this.setState({ listing: data.data });
+        this.setState({ reviews: data.data });
       })
       .catch((error) => {
         console.log(error);
@@ -31,8 +31,8 @@ class App extends React.Component {
         <div className='reviews-title'>
           Reviews
         </div>
-        <ReviewList listing={this.state.listing} />
-        <ReviewModal listing={this.state.listing} />
+        <ReviewList reviews={this.state.reviews} />
+        <ReviewModal reviews={this.state.reviews} />
       </div>
     );
   }

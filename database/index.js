@@ -10,21 +10,24 @@ mongoose.connect('mongodb://localhost/airbnb', { useNewUrlParser: true }, err =>
 });
 
 let reviewSchema = mongoose.Schema({
-  hostName: String,
-  hostPicture: String,
   id: {
     type: Number,
     min: 1,
-    max: 100,
+    max: 3000,
     unique: true
   },
-  reviews: [{
-    content: String,
-    hostComment: String,
-    reviewerName: String,
-    reviewerPicture: String,
-    createdAt: { type: Date, required: true }
-  }]
+  listingId: {
+    type: Number,
+    min: 1,
+    max: 100
+  },
+  content: String,
+  reviewerName: String,
+  reviewerPicture: String,
+  hostComment: String,
+  hostName: String,
+  hostPicture: String,
+  createdAt: { type: Date, required: true }
 });
 
 let Review = mongoose.model('Review', reviewSchema);
@@ -47,8 +50,8 @@ let save = () => {
   });
 };
 
-let retrieveFromDb = (id, callback) => {
-  Review.findOne({ id: id }, function (err, data) {
+let retrieveFromDb = (listingId, callback) => {
+  Review.find({ listingId: listingId }, function (err, data) {
     if (err) {
       return console.log('ERROR at db');
     } else {

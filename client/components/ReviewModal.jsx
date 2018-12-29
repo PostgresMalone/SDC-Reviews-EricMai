@@ -25,10 +25,10 @@ class ReviewModal extends React.Component {
 
   render() {
     var reviewList = [];
-    var listing = this.props.listing;
-    if (this.props.listing.length !== 0) {
-      for (var i = 0; i < listing.reviews.length; i++) {
-        reviewList.push(<Review reviews={listing.reviews[i]} key={i} hostName={listing.hostName} hostPicture={listing.hostPicture} />);
+    var reviews = this.props.reviews;
+    if (this.props.reviews.length !== 0) {
+      for (var i = 0; i < reviews.length; i++) {
+        reviewList.push(<Review review={reviews[i]} key={i} />);
       }
     }
     return (

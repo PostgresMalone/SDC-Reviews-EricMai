@@ -2,53 +2,41 @@ var faker = require('faker');
 const save = require('../database/index.js').save;
 const fs = require('fs');
 
-var hostName = faker.name.findName;
-var hostPicture = 'http://lorempixel.com/150/150/';
 var content = faker.lorem.paragraph;
-var hostComment = faker.lorem.paragraph;
 var reviewerName = faker.name.findName;
 var reviewerPicture = 'http://lorempixel.com/150/150/';
+var hostComment = faker.lorem.paragraph;
+var hostName = faker.name.findName;
+var hostPicture = 'http://lorempixel.com/150/150/';
 var createdAt = faker.date.recent;
 
-var totalData = [];
 
-const reviewGenerator = () => {
+var allData = [];
+
+const singleReviewGenerator = (i) => {
   var reviewObj = {
+    id: i + 1,
+    listingId: (i % 100) + 1,
     content: content(),
-    hostComment: hostComment(),
     reviewerName: reviewerName(),
     reviewerPicture: reviewerPicture,
-    createdAt: createdAt()
+    hostComment: hostComment(),
+    hostName: hostName(),
+    hostPicture: hostPicture,
+    createdAt: createdAt(),
   };
   return reviewObj;
 };
 
-const singleDataGenerator = (j) => {
-  var reviewList = [];
-  for (var i = 0; i < 30; i++) {
-    reviewItem = reviewGenerator();
-    reviewList.push(reviewItem);
+const reviewListGenerator = () => {
+  for (var i = 0; i < 3000; i++) {
+    reviewItem = singleReviewGenerator(i);
+    allData.push(reviewItem);
   }
-  var compiled = {
-    hostName: hostName(),
-    hostPicture: hostPicture,
-    id: j,
-    reviews: reviewList
-  };
-  return compiled;
 };
 
-const totalDataGenerator = () => {
-  for (var j = 1; j < 101; j++) {
-    j = j;
-    data = singleDataGenerator(j);
-    totalData.push(data);
-  }
-  return totalData;
-};
-
-totalDataGenerator();
-fs.writeFile('./database/data.txt', JSON.stringify(totalData), (err, data) => {
+reviewListGenerator();
+fs.writeFile('./database/data.txt', JSON.stringify(allData), (err, data) => {
   if (err) {
     return console.log('Error in writing', err);
   }

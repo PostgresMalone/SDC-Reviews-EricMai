@@ -9,9 +9,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/../public'));
 
 app.get('/:listing_id/reviews', function (req, res) {
-  id = req.params.listing_id;
-  retrieveFromDb(id, (reviews) => {
-    console.log('AT SERVER', reviews[0]);
+  listingId = req.params.listing_id;
+  retrieveFromDb(listingId, (reviews) => {
     res.send(reviews);
   });
 });
