@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
+import ReviewModal from './ReviewModal.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class App extends React.Component {
           Reviews
         </div>
         <ReviewList listing={this.state.listing} />
+        <ReviewModal listing={this.state.listing} />
       </div>
     );
   }
