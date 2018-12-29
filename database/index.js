@@ -50,17 +50,15 @@ let save = () => {
   });
 };
 
-let retrieveFromDb = (listingId, callback) => {
+let retrieveFromDb = (listingId, limit, offset, callback) => {
   Review.find({ listingId: listingId }, function (err, data) {
     if (err) {
-      return console.log('ERROR at db');
+      return console.log('ERROR at db', err);
     } else {
       callback(data);
     }
-  });
+  }).limit(limit).skip(offset);
 };
-
-// save();
 
 module.exports.save = save;
 module.exports.retrieveFromDb = retrieveFromDb;

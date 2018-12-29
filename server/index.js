@@ -9,8 +9,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/../public'));
 
 app.get('/:listing_id/reviews', function (req, res) {
-  listingId = req.params.listing_id;
-  retrieveFromDb(listingId, (reviews) => {
+  var listingId = req.params.listing_id;
+  var limit = Number(req.query.limit);
+  var offset = Number(req.query.offset);
+  retrieveFromDb(listingId, limit, offset, (reviews) => {
     res.send(reviews);
   });
 });
