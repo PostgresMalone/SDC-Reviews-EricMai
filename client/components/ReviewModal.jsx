@@ -8,11 +8,6 @@ import axios from 'axios';
 class ReviewModal extends React.Component {
   constructor(props) {
     super(props);
-
-    this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-    this.fetchMoreData = this.fetchMoreData.bind(this);
-
     this.state = {
       show: false,
       offset: 0,
@@ -20,21 +15,14 @@ class ReviewModal extends React.Component {
       hasMore: true
     };
 
-    this.fetchMoreData()
+    this.fetchMoreData = this.fetchMoreData.bind(this);
+    this.fetchMoreData();
 
-  }
-
-  handleClose() {
-    this.setState({ show: false });
-  }
-
-  handleShow() {
-    this.setState({ show: true });
   }
 
   fetchMoreData() {
     var offset = this.state.offset;
-    var limit = 5;
+    var limit = 10;
     axios.get(`/1/reviews?limit=${limit}&offset=${offset}`)
       .then((data) => {
         var reviews = data.data;
@@ -46,7 +34,6 @@ class ReviewModal extends React.Component {
 
         for (var i = 0; i < reviews.length; i++) {
           this.setState({ reviewList: this.state.reviewList.concat([<Review review={reviews[i]} />]) });
-          console.log(i)
         }
 
         this.setState({
@@ -59,13 +46,12 @@ class ReviewModal extends React.Component {
       });
   }
 
-
   render() {
+    const divStyle = {
+      width: '720px'
+    };
     return (
-      <div>
-        <Button bsStyle="primary" bsSize="large" onClick={this.handleShow}>
-          Read all reviews
-        </Button>
+      <div style={divStyle}>
         <InfiniteScroll
           dataLength={this.state.reviewList.length}
           next={this.fetchMoreData}

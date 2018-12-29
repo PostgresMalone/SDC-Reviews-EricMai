@@ -1,14 +1,17 @@
 import React from 'react';
 import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
-import ReviewModal from './ReviewModal.jsx';
+import ReadMore from './ReadMore.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: []
+      reviews: [],
+      showModal: false,
+      showMoreButton: true,
     };
+    this.handleSwitch = this.handleSwitch.bind(this);
   }
 
   getReviews() {
@@ -21,6 +24,13 @@ class App extends React.Component {
       });
   }
 
+  handleSwitch() {
+    this.setState({
+      showModal: !this.state.showModal,
+      showMoreButton: !this.state.showMoreButton
+    })
+  }
+
   componentDidMount() {
     this.getReviews();
   }
@@ -31,8 +41,9 @@ class App extends React.Component {
         <div className='reviews-title'>
           Reviews
         </div>
-        <ReviewList reviews={this.state.reviews} />
-        <ReviewModal reviews={this.state.reviews} />
+        <ReviewList reviews={this.state.reviews} showModal={this.state.showModal} />
+        {/* <ReviewModal reviews={this.state.reviews} /> */}
+        <ReadMore showMoreButton={this.state.showMoreButton} handleSwitch={this.handleSwitch} />
       </div>
     );
   }
