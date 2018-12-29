@@ -1,18 +1,24 @@
 import React from 'react';
 import Review from './Review.jsx';
-
+import ReviewModal from './ReviewModal.jsx';
 const ReviewList = (props) => {
-  var listing = props.listing;
+  var reviews = props.reviews;
   var reviewList = [];
-  if (props.listing.length !== 0) {
+  if (props.reviews.length !== 0) {
     for (var i = 0; i < 6; i++) {
-      reviewList.push(<Review reviews={listing.reviews[i]} key={i} hostName={listing.hostName} hostPicture={listing.hostPicture} />);
+      reviewList.push(<Review review={reviews[i]} key={i} />);
     }
   }
-  return (
-    <div id="review-list">
-      {reviewList}
-    </div>
-  );
+  if (props.showModal) {
+    return (
+      <ReviewModal />
+    )
+  } else {
+    return (
+      <div id="review-list">
+        {reviewList}
+      </div>
+    );
+  }
 };
 export default ReviewList;

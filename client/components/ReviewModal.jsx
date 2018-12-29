@@ -1,52 +1,70 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
-import Review from './Review.jsx'
+import InfiniteScroll from "react-infinite-scroll-component";
+import Review from './Review.jsx';
+import axios from 'axios';
 
 class ReviewModal extends React.Component {
   constructor(props) {
     super(props);
-
-    this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-
     this.state = {
       show: false,
+      offset: 0,
+      reviewList: [],
+      hasMore: true
     };
+
+    this.fetchMoreData = this.fetchMoreData.bind(this);
+    this.fetchMoreData();
+
   }
 
-  handleClose() {
-    this.setState({ show: false });
-  }
+  fetchMoreData() {
+    var offset = this.state.offset;
+    var limit = 10;
+    axios.get(`/1/reviews?limit=${limit}&offset=${offset}`)
+      .then((data) => {
+        var reviews = data.data;
 
-  handleShow() {
-    this.setState({ show: true });
+        if (reviews.length === 0) {
+          this.setState({ hasMore: false });
+          return;
+        }
+
+        for (var i = 0; i < reviews.length; i++) {
+          this.setState({ reviewList: this.state.reviewList.concat([<Review review={reviews[i]} />]) });
+        }
+
+        this.setState({
+          offset: this.state.offset + reviews.length
+        });
+
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
-    var reviewList = [];
-    var listing = this.props.listing;
-    if (this.props.listing.length !== 0) {
-      for (var i = 0; i < listing.reviews.length; i++) {
-        reviewList.push(<Review reviews={listing.reviews[i]} key={i} hostName={listing.hostName} hostPicture={listing.hostPicture} />);
-      }
-    }
+    const divStyle = {
+      width: '720px'
+    };
     return (
-      <div>
-        <Button bsStyle="primary" bsSize="large" onClick={this.handleShow}>
-          Read all reviews
-        </Button>
-        <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Reviews</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            {reviewList}
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.handleClose}>Close</Button>
-          </Modal.Footer>
-        </Modal>
+      <div style={divStyle}>
+        <InfiniteScroll
+          dataLength={this.state.reviewList.length}
+          next={this.fetchMoreData}
+          hasMore={this.state.hasMore}
+          loader={<h4>Loading...</h4>}
+          endMessage={
+            <p style={{ textAlign: "center" }}>
+              <b>You have seen it all</b>
+            </p>
+          }
+        >
+          {this.state.reviewList}
+        </InfiniteScroll>
       </div>
     );
   }
