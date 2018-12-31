@@ -13,7 +13,7 @@ var createdAt = faker.date.recent;
 var allData = [];
 
 const getRandomPhoto = () => {
-  var number = Math.floor(Math.random() * (75 - 0 + 1));;
+  var number = Math.floor(Math.random() * 76);
   var gender = 'women';
   if (Math.random() > 0.5) {
     gender = 'men';
