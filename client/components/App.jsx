@@ -43,7 +43,6 @@ class App extends React.Component {
           Reviews
         </div>
         <ReviewList reviews={this.state.reviews} showModal={this.state.showModal} />
-        {/* <ReviewModal reviews={this.state.reviews} /> */}
         <ReadMore showMoreButton={this.state.showMoreButton} handleSwitch={this.handleSwitch} />
       </div>
     );
