@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import InfiniteScroll from "react-infinite-scroll-component";
 import Review from './Review.jsx';
 import axios from 'axios';
+import style from './style.css.js';
 
 class ReviewModal extends React.Component {
   constructor(props) {
@@ -47,11 +48,9 @@ class ReviewModal extends React.Component {
   }
 
   render() {
-    const divStyle = {
-      width: '720px'
-    };
+
     return (
-      <div style={divStyle}>
+      <div style={style.modalStyle}>
         <InfiniteScroll
           dataLength={this.state.reviewList.length}
           next={this.fetchMoreData}

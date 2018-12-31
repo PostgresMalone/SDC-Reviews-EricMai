@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
 import ReadMore from './ReadMore.jsx';
+import style from './style.css.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -37,8 +38,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id='wrapper' >
-        <div className='reviews-title'>
+      <div style={style.wrapper} >
+        <div style={style.reviewsTitle}>
           Reviews
         </div>
         <ReviewList reviews={this.state.reviews} showModal={this.state.showModal} />

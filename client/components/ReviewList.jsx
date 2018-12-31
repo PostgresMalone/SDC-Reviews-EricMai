@@ -1,6 +1,7 @@
 import React from 'react';
 import Review from './Review.jsx';
 import ReviewModal from './ReviewModal.jsx';
+import style from './style.css.js';
 const ReviewList = (props) => {
   var reviews = props.reviews;
   var reviewList = [];
@@ -15,7 +16,7 @@ const ReviewList = (props) => {
     )
   } else {
     return (
-      <div id="review-list">
+      <div style={style.reviewList}>
         {reviewList}
       </div>
     );
