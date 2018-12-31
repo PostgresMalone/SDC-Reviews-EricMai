@@ -4,7 +4,6 @@ const fs = require('fs');
 
 var content = faker.lorem.paragraph;
 var reviewerName = faker.name.findName;
-var reviewerPicture = 'http://lorempixel.com/150/150/';
 var hostComment = faker.lorem.paragraph;
 var hostName = faker.name.findName;
 var hostPicture = 'http://lorempixel.com/150/150/';
@@ -13,16 +12,27 @@ var createdAt = faker.date.recent;
 
 var allData = [];
 
+const getRandomPhoto = () => {
+  var number = Math.floor(Math.random() * (75 - 0 + 1));;
+  var gender = 'women';
+  if (Math.random() > 0.5) {
+    gender = 'men';
+  }
+
+  return `https://randomuser.me/api/portraits/${gender}/${number}.jpg`;
+}
+
 const singleReviewGenerator = (i) => {
+
   var reviewObj = {
     id: i + 1,
     listingId: (i % 100) + 1,
     content: content(),
     reviewerName: reviewerName(),
-    reviewerPicture: reviewerPicture,
+    reviewerPicture: getRandomPhoto(),
     hostComment: hostComment(),
     hostName: hostName(),
-    hostPicture: hostPicture,
+    hostPicture: getRandomPhoto(),
     createdAt: createdAt(),
   };
   return reviewObj;
