@@ -6,7 +6,6 @@ var content = faker.lorem.paragraph;
 var reviewerName = faker.name.findName;
 var hostComment = faker.lorem.paragraph;
 var hostName = faker.name.findName;
-var hostPicture = 'http://lorempixel.com/150/150/';
 var createdAt = faker.date.recent;
 
 

@@ -2,6 +2,15 @@ const wrapper = {
   fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important',
   color: '#484848',
 }
+
+const commentWrapper = {
+  fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important',
+  color: '#484848',
+  marginLeft: '40px',
+  display: 'grid',
+  gridTemplateColumns: '1fr auto',
+  gridColumnGap: '5%',
+}
 const reviewsTitle = {
   fontSize: '22px',
   fontWeight: '600',
@@ -39,7 +48,6 @@ const reviewerPicture = {
 
 const showReviews = {
   color: '#A61D55',
-  // color: 'red'
 }
 
 const modalStyle = {
@@ -55,5 +63,6 @@ export default {
   reviewerPicture,
   readMoreContent,
   showReviews,
-  modalStyle
+  modalStyle,
+  commentWrapper
 };

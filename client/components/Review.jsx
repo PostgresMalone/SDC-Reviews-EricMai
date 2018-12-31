@@ -1,11 +1,11 @@
 import React from 'react';
 import ReadMoreAndLess from 'react-read-more-less';
+import Comment from './Comment.jsx'
 import style from './style.css.js';
 const Review = (props) => {
   var reviewerName = props.review.reviewerName;
   var content = props.review.content;
   var reviewerPic = props.review.reviewerPicture;
-  var hostName = props.review.hostName;
   var createdAt = Date.parse(props.review.createdAt);
 
   const timeBetween = (createdAt) => {
@@ -36,22 +36,44 @@ const Review = (props) => {
 
   var timeDifference = timeBetween(createdAt);
 
-  return (
-    <div style={style.wrapper}>
-      <div style={style.reviewTitle}>
-        <img style={style.reviewerPicture} src={`${reviewerPic}`} alt="profile picture" height="42" width="42" />
-        {reviewerName}
+  if (props.showModal) {
+    return (
+      <div style={style.wrapper}>
+        <div style={style.reviewTitle}>
+          <img style={style.reviewerPicture} src={`${reviewerPic}`} alt="profile picture" height="42" width="42" />
+          {reviewerName}
+        </div>
+        <div>
+          {timeDifference}
+        </div>
+        <div>
+          <ReadMoreAndLess charLimit={250} readMoreText="Read more" readLessText="Read less">
+            {content}
+          </ReadMoreAndLess>
+          <div>
+            <Comment review={props.review} />
+          </div>
+        </div>
       </div>
-      <div>
-        {timeDifference}
+    );
+  } else {
+    return (
+      <div style={style.wrapper}>
+        <div style={style.reviewTitle}>
+          <img style={style.reviewerPicture} src={`${reviewerPic}`} alt="profile picture" height="42" width="42" />
+          {reviewerName}
+        </div>
+        <div>
+          {timeDifference}
+        </div>
+        <div>
+          <ReadMoreAndLess charLimit={250} readMoreText="Read more" readLessText="Read less">
+            {content}
+          </ReadMoreAndLess>
+        </div>
       </div>
-      <div>
-        <ReadMoreAndLess charLimit={250} readMoreText="Read more" readLessText="Read less">
-          {content}
-        </ReadMoreAndLess>
-      </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default Review;
