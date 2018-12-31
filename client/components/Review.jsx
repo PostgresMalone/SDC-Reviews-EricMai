@@ -38,10 +38,10 @@ const Review = (props) => {
 
   return (
     <div style={style.wrapper}>
-      < div style={style.reviewTitle} >
+      <div style={style.reviewTitle}>
         <img style={style.reviewerPicture} src={`${reviewerPic}`} alt="profile picture" height="42" width="42" />
         {reviewerName}
-      </div >
+      </div>
       <div>
         {timeDifference}
       </div>
@@ -50,7 +50,6 @@ const Review = (props) => {
           {content}
         </ReadMoreAndLess>
       </div>
-
     </div>
   );
 };
