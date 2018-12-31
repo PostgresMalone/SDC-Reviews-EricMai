@@ -7,12 +7,12 @@ const ReviewList = (props) => {
   var reviewList = [];
   if (props.reviews.length !== 0) {
     for (var i = 0; i < 6; i++) {
-      reviewList.push(<Review review={reviews[i]} key={i} />);
+      reviewList.push(<Review review={reviews[i]} key={i} showModal={props.showModal} />);
     }
   }
   if (props.showModal) {
     return (
-      <ReviewModal />
+      <ReviewModal showModal={props.showModal} />
     )
   } else {
     return (

@@ -34,7 +34,7 @@ class ReviewModal extends React.Component {
         }
 
         for (var i = 0; i < reviews.length; i++) {
-          this.setState({ reviewList: this.state.reviewList.concat([<Review review={reviews[i]} />]) });
+          this.setState({ reviewList: this.state.reviewList.concat([<Review review={reviews[i]} key={Math.random()} showModal={this.props.showModal} />]) });
         }
 
         this.setState({
@@ -56,13 +56,15 @@ class ReviewModal extends React.Component {
           next={this.fetchMoreData}
           hasMore={this.state.hasMore}
           loader={<h4>Loading...</h4>}
-          endMessage={
-            <p style={{ textAlign: "center" }}>
-              <b>You have seen it all</b>
-            </p>
-          }
+        // endMessage={
+        //   <p style={{ textAlign: "center" }}>
+        //     <b>You have seen it all</b>
+        //   </p>
+        // }
         >
-          {this.state.reviewList}
+          <div>
+            {this.state.reviewList}
+          </div>
         </InfiniteScroll>
       </div>
     );
