@@ -42,7 +42,7 @@ class App extends React.Component {
         <div style={style.reviewsTitle}>
           Reviews
         </div>
-        <ReviewList reviews={this.state.reviews} showModal={this.state.showModal} />
+        <ReviewList className='reviewList' reviews={this.state.reviews} showModal={this.state.showModal} />
         <ReadMore showMoreButton={this.state.showMoreButton} handleSwitch={this.handleSwitch} />
       </div>
     );
