@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render correctly in "debug" mode 1`] = `
+<div
+  style={
+    Object {
+      "color": "#484848",
+      "fontFamily": "Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important",
+      "marginLeft": "2%",
+      "padding": "1%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "color": "#484848",
+        "fontFamily": "Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif",
+        "fontSize": "22px",
+        "fontWeight": "600",
+        "marginLeft": "2%",
+        "wordWrap": "break-word",
+      }
+    }
+  >
+    Reviews
+  </div>
+  <ReviewList
+    className="reviewList"
+    reviews={Array []}
+    showModal={false}
+  />
+  <ReadMore
+    handleSwitch={[Function]}
+    showMoreButton={true}
+  />
+</div>
+`;
+
+exports[`App should render correctly with no props 1`] = `
+<div
+  style={
+    Object {
+      "color": "#484848",
+      "fontFamily": "Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important",
+      "marginLeft": "2%",
+      "padding": "1%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "color": "#484848",
+        "fontFamily": "Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif",
+        "fontSize": "22px",
+        "fontWeight": "600",
+        "marginLeft": "2%",
+        "wordWrap": "break-word",
+      }
+    }
+  >
+    Reviews
+  </div>
+  <ReviewList
+    className="reviewList"
+    reviews={Array []}
+    showModal={false}
+  />
+  <ReadMore
+    handleSwitch={[Function]}
+    showMoreButton={true}
+  />
+</div>
+`;

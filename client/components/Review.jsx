@@ -42,9 +42,9 @@ const Review = (props) => {
         <div style={style.reviewTitle}>
           <img style={style.reviewerPicture} src={`${reviewerPic}`} alt="profile picture" height="42" width="42" />
           {reviewerName}
-        </div>
-        <div>
-          {timeDifference}
+          <div>
+            {timeDifference}
+          </div>
         </div>
         <div>
           <ReadMoreAndLess charLimit={250} readMoreText="Read more" readLessText="Read less">

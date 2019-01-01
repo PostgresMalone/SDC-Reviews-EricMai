@@ -6,6 +6,14 @@
   "engines": {
     "node": ">=6.13.0"
   },
+  "jest": {
+    "setupFiles": [
+      "./client/setupTests.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "scripts": {
     "express": "nodemon server/index.js",
     "webpack": "webpack --watch",
@@ -14,6 +22,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.2.1",
     "express": "^4.16.4",
@@ -29,10 +38,15 @@
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "css-loader": "^2.1.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "enzyme-to-json": "^3.3.5",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "jest": "^23.6.0",
     "style-loader": "^0.23.1",
