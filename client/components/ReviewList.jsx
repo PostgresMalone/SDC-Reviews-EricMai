@@ -12,7 +12,9 @@ const ReviewList = (props) => {
   }
   if (props.showModal) {
     return (
-      <ReviewModal showModal={props.showModal} />
+      <div>
+        <ReviewModal showModal={props.showModal} />
+      </div>
     )
   } else {
     return (

@@ -38,35 +38,35 @@ const Review = (props) => {
 
   if (props.showModal) {
     return (
-      <div style={style.wrapper}>
-        <div style={style.reviewTitle}>
-          <img style={style.reviewerPicture} src={`${reviewerPic}`} alt="profile picture" height="42" width="42" />
-          {reviewerName}
-          <div>
+      <div style={style.commentWrapper}>
+        <img style={style.reviewerPicture} src={`${reviewerPic}`} alt="profile picture" height="42" width="42" />
+        <div style={style.textContentWrapper}>
+          <div className='reviewTitle' style={style.reviewTitle}>{reviewerName}</div>
+          <p>
             {timeDifference}
+          </p>
+          <div style={style.textContentWrapper}>
+            <ReadMoreAndLess charLimit={250} readMoreText="Read more" readLessText="Read less">
+              {content}
+            </ReadMoreAndLess>
           </div>
-        </div>
-        <div>
-          <ReadMoreAndLess charLimit={250} readMoreText="Read more" readLessText="Read less">
-            {content}
-          </ReadMoreAndLess>
           <div>
             <Comment review={props.review} />
           </div>
+          <div style={style.borderBottom}></div>
         </div>
       </div>
+
     );
   } else {
     return (
-      <div style={style.wrapper}>
-        <div style={style.reviewTitle}>
-          <img style={style.reviewerPicture} src={`${reviewerPic}`} alt="profile picture" height="42" width="42" />
-          {reviewerName}
-        </div>
-        <div>
-          {timeDifference}
-        </div>
-        <div>
+      <div style={style.commentWrapper}>
+        <img style={style.reviewerPicture} src={`${reviewerPic}`} alt="profile picture" height="42" width="42" />
+        <div style={style.textContentWrapper}>
+          <div className='reviewTitle' style={style.reviewTitle}>{reviewerName}</div>
+          <p>
+            {timeDifference}
+          </p>
           <ReadMoreAndLess charLimit={250} readMoreText="Read more" readLessText="Read less">
             {content}
           </ReadMoreAndLess>
