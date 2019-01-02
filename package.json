@@ -18,7 +18,7 @@
     "express": "nodemon server/index.js",
     "webpack": "webpack --watch",
     "seed": "node database/seeding.js",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "axios": "^0.18.0",
