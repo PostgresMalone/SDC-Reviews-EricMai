@@ -28,13 +28,13 @@ const Comment = (props) => {
     <div style={style.commentWrapper}>
       <img style={style.reviewerPicture} src={`${hostPicture}`} alt="profile picture" height="42" width="42" />
       <div>
-        <p style={style.reviewTitle}>Response from {hostName}</p>
+        <p className='reviewTitle' style={style.reviewTitle}>Response from {hostName}</p>
+        <p>
+          {month} {year}
+        </p>
         <ReadMoreAndLess charLimit={50} readMoreText="Read more" readLessText="Read less">
           {hostComment}
         </ReadMoreAndLess>
-        <div>
-          {month} {year}
-        </div>
       </div>
     </div>
   );
