@@ -30,7 +30,8 @@ describe('ReviewList tests', () => {
 describe('ReadMore tests', () => {
 
   it('renders readMore', () => {
-    const wrapper = shallow(<ReadMore />);
+    const items = ['one', 'two', 'three'];
+    const wrapper = shallow(<ReadMore reviews={items} />);
     expect(wrapper.find('.readMore')).toBeDefined();
     // expect(wrapper.find('.item')).toHaveLength(items.length);
   });

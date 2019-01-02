@@ -1,6 +1,4 @@
 import React from 'react';
-import { Modal } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
 import InfiniteScroll from "react-infinite-scroll-component";
 import Review from './Review.jsx';
 import axios from 'axios';
@@ -56,11 +54,6 @@ class ReviewModal extends React.Component {
           next={this.fetchMoreData}
           hasMore={this.state.hasMore}
           loader={<h4>Loading...</h4>}
-        // endMessage={
-        //   <p style={{ textAlign: "center" }}>
-        //     <b>You have seen it all</b>
-        //   </p>
-        // }
         >
           <div>
             {this.state.reviewList}
