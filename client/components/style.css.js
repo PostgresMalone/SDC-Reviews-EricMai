@@ -6,8 +6,10 @@ const wrapper = {
 }
 
 const textContentWrapper = {
-  marginBottom: '20px',
+  fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important',
+  marginBottom: '10px',
 }
+
 
 const commentWrapper = {
   fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important',
@@ -42,6 +44,7 @@ const borderBottom = {
 }
 
 const reviewList = {
+  fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif',
   display: 'grid',
   gridTemplateColumns: 'auto auto',
   gridGap: '30px',
@@ -60,17 +63,20 @@ const readMoreContent = {
 
 const reviewerPicture = {
   borderRadius: '50%',
+  marginTop: '1em',
   marginRight: '1em',
   justifySelf: 'end',
 }
 
 const showReviews = {
+  fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif',
   color: '#A61D55',
   textDecoration: 'none'
 }
 
 
 const modalStyle = {
+  fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif',
   width: '720px'
 };
 

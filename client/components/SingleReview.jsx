@@ -67,9 +67,11 @@ const SingleReview = (props) => {
           <p>
             {timeDifference}
           </p>
-          <ReadMoreAndLess charLimit={250} readMoreText="Read more" readLessText="Read less">
-            {content}
-          </ReadMoreAndLess>
+          <div style={style.textContentWrapper}>
+            <ReadMoreAndLess charLimit={250} readMoreText="Read more" readLessText="Read less">
+              {content}
+            </ReadMoreAndLess>
+          </div>
         </div>
       </div>
     );
