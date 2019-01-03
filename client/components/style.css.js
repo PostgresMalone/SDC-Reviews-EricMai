@@ -1,39 +1,50 @@
 const wrapper = {
-  fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important',
+  fontFamily: 'system-ui',
   color: '#484848',
   marginLeft: '2%',
   padding: '1%',
+  fontWeight: '100'
 }
 
-const textContentWrapper = {
-  fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important',
+const reviewContentWrapper = {
+  // fontFamily: 'system-ui',
   marginBottom: '10px',
+  gridColumnStart: '1',
+  gridColumnEnd: '3',
+  gridRowStart: '2',
 }
-
 
 const commentWrapper = {
-  fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important',
+  fontFamily: 'system-ui',
+  fontSize: '15px',
   color: '#484848',
   display: 'grid',
   gridTemplateColumns: 'auto auto auto auto auto auto',
-  gridTemplateRows: 'auto',
+  gridTemplateRows: 'auto auto auto ',
+  marginBottom: '10px'
+}
 
+const commentComponent = {
+  // fontFamily: 'system-ui',
+  marginBottom: '10px',
+  gridColumnStart: '1',
+  gridRowStart: '3',
+  marginLeft: '20px',
 }
 const reviewsTitle = {
   fontSize: '22px',
   fontWeight: '600',
   wordWrap: 'break-word',
-  fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif',
+  fontFamily: 'system-ui',
   color: '#484848',
-  marginBottom: '2%'
+  marginBottom: '2%',
 }
 const reviewTitle = {
   fontSize: '16px',
   fontWeight: '600',
-  fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif',
+  fontFamily: 'system-ui',
   color: '#484848',
-  gridColumnStart: '2',
-  gridColumnEnd: '3',
+  display: 'inline-block'
 }
 
 const borderBottom = {
@@ -41,24 +52,21 @@ const borderBottom = {
   borderBottomStyle: 'solid',
   borderBottomColor: '#EBEBEB',
   marginTop: '20px',
+  // gridRowStart: '4',
+  gridColumnStart: '1',
+  gridColumnEnd: '4',
 }
 
 const reviewList = {
-  fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif',
+  // fontFamily: 'system-ui',
   display: 'grid',
   gridTemplateColumns: 'auto auto',
-  gridGap: '30px',
-  padding: '10px',
+  gridGap: '10px',
+  // padding: '10px',
 }
 
 const readMoreText = {
-  // color: '#A61D55',
-  color: 'red'
-}
-
-const readMoreContent = {
-  fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif',
-  color: '#484848',
+  color: '#A61D55',
 }
 
 const reviewerPicture = {
@@ -66,17 +74,17 @@ const reviewerPicture = {
   marginTop: '1em',
   marginRight: '1em',
   justifySelf: 'end',
+  display: 'inline-block'
 }
 
 const showReviews = {
-  fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif',
+  fontFamily: 'system-ui',
   color: '#A61D55',
   textDecoration: 'none'
 }
 
-
 const modalStyle = {
-  fontFamily: 'Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif',
+  fontFamily: 'system-ui',
   width: '720px'
 };
 
@@ -87,10 +95,10 @@ export default {
   reviewList,
   readMoreText,
   reviewerPicture,
-  readMoreContent,
   showReviews,
   modalStyle,
   commentWrapper,
-  textContentWrapper,
-  borderBottom
+  borderBottom,
+  reviewContentWrapper,
+  commentComponent,
 };

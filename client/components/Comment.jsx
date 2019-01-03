@@ -23,16 +23,15 @@ const Comment = (props) => {
 
   var month = monthList[createdAt.getMonth()];
   var year = createdAt.getFullYear();
-
   return (
     <div style={style.commentWrapper}>
       <img style={style.reviewerPicture} src={`${hostPicture}`} alt="profile picture" height="42" width="42" />
       <div>
-        <p className='reviewTitle' style={style.reviewTitle}>Response from {hostName}</p>
-        <p>
-          {month} {year}
-        </p>
-        <ReadMoreAndLess charLimit={50} readMoreText="Read more" readLessText="Read less">
+        <div className='reviewTitle' style={style.reviewTitle}>
+          <p>Response from {hostName}</p>
+          <p style={{ fontWeight: '100' }}>{month} {year}</p>
+        </div>
+        <ReadMoreAndLess style={style.readMoreText} charLimit={50} readMoreText="Read more" readLessText="Read less">
           {hostComment}
         </ReadMoreAndLess>
       </div>
