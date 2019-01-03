@@ -16,16 +16,13 @@ class ReviewModal extends React.Component {
 
     this.fetchMoreData = this.fetchMoreData.bind(this);
     this.fetchMoreData();
-
   }
-
   fetchMoreData() {
     var offset = this.state.offset;
     var limit = 10;
     axios.get(`/1/reviews?limit=${limit}&offset=${offset}`)
       .then((data) => {
         var reviews = data.data;
-
         if (reviews.length === 0) {
           this.setState({ hasMore: false });
           return;
