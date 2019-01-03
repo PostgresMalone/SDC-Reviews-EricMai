@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should render correctly in "debug" mode 1`] = `
+exports[`Review should render correctly in "debug" mode 1`] = `
 <div
   style={
     Object {
@@ -38,7 +38,7 @@ exports[`App should render correctly in "debug" mode 1`] = `
 </div>
 `;
 
-exports[`App should render correctly with no props 1`] = `
+exports[`Review should render correctly with no props 1`] = `
 <div
   style={
     Object {
