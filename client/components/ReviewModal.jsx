@@ -1,6 +1,6 @@
 import React from 'react';
 import InfiniteScroll from "react-infinite-scroll-component";
-import Review from './Review.jsx';
+import SingleReview from './SingleReview.jsx';
 import axios from 'axios';
 import style from './style.css.js';
 
@@ -32,7 +32,7 @@ class ReviewModal extends React.Component {
         }
 
         for (var i = 0; i < reviews.length; i++) {
-          this.setState({ reviewList: this.state.reviewList.concat([<Review review={reviews[i]} key={Math.random()} showModal={this.props.showModal} />]) });
+          this.setState({ reviewList: this.state.reviewList.concat([<SingleReview review={reviews[i]} key={Math.random()} showModal={this.props.showModal} />]) });
         }
 
         this.setState({
