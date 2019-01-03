@@ -1,16 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from '../components/App.jsx';
+import Review from '../components/Review.jsx';
 import ReviewList from '../components/ReviewList';
 import ReadMore from '../components/ReadMore';
-describe('App', () => {
+describe('Review', () => {
   it('should render correctly in "debug" mode', () => {
-    const component = shallow(<App debug />);
+    const component = shallow(<Review debug />);
 
     expect(component).toMatchSnapshot();
   });
   it('should render correctly with no props', () => {
-    const component = shallow(<App />);
+    const component = shallow(<Review />);
 
     expect(component).toMatchSnapshot();
   });
