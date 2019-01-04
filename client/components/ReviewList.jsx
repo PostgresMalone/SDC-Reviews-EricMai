@@ -18,8 +18,13 @@ const ReviewList = (props) => {
     )
   } else {
     return (
-      <div style={style.reviewList}>
-        {reviewList}
+      <div>
+        <div style={style.reviewsTitle}>
+          Reviews
+        </div>
+        <div style={style.reviewList}>
+          {reviewList}
+        </div>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 const wrapper = {
   fontFamily: 'system-ui',
   color: '#484848',
-  marginLeft: '2%',
+  // marginLeft: '2%',
   padding: '1%',
   fontWeight: '100'
 }
@@ -83,10 +83,24 @@ const showReviews = {
   textDecoration: 'none'
 }
 
+const hideReviews = {
+  fontFamily: 'system-ui',
+  color: '#A61D55',
+  textDecoration: 'none',
+  margin: 'auto',
+  display: 'block',
+  textAlign: 'center',
+}
+
 const modalStyle = {
   fontFamily: 'system-ui',
-  width: '720px'
+  width: '720px',
+  margin: '0 auto',
 };
+
+// const reviewModalDiv = {
+
+// }
 
 export default {
   wrapper,
@@ -101,4 +115,5 @@ export default {
   borderBottom,
   reviewContentWrapper,
   commentComponent,
+  hideReviews
 };

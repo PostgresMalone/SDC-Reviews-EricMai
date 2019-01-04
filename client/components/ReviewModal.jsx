@@ -46,6 +46,9 @@ class ReviewModal extends React.Component {
 
     return (
       <div style={style.modalStyle}>
+        <div style={style.reviewsTitle}>
+          Reviews
+        </div>
         <InfiniteScroll
           dataLength={this.state.reviewList.length}
           next={this.fetchMoreData}
