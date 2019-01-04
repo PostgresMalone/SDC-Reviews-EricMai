@@ -13,6 +13,8 @@ class Review extends React.Component {
       showMoreButton: true,
     };
     this.handleSwitch = this.handleSwitch.bind(this);
+    this.scroll = this.scroll.bind(this);
+    this.reviewInput = React.createRef();
   }
 
   getReviews() {
@@ -26,10 +28,19 @@ class Review extends React.Component {
   }
 
   handleSwitch() {
+    this.scroll();
     this.setState({
       showModal: !this.state.showModal,
       showMoreButton: !this.state.showMoreButton
-    })
+    });
+  }
+
+  scroll() {
+    var that = this;
+    window.scrollTo({
+      top: that.reviewInput.current.offsetTop,
+      behavior: "smooth",
+    });
   }
 
   componentDidMount() {
@@ -38,12 +49,22 @@ class Review extends React.Component {
 
   render() {
     return (
-      <div style={style.wrapper} >
-        <div style={style.reviewsTitle}>
-          Reviews
+      <div>
+        <div style={{ width: '100px', height: '100px' }}></div>
+        <div style={{ width: '100px', height: '100px' }}></div>
+        <div style={{ width: '100px', height: '100px' }}></div>
+        <div style={{ width: '100px', height: '100px' }}></div>
+        <div style={{ width: '100px', height: '100px' }}></div>
+        <div style={{ width: '100px', height: '100px' }}></div>
+        <div style={{ width: '100px', height: '100px' }}></div>
+        <div style={{ width: '100px', height: '100px' }}></div>
+        <div style={{ width: '100px', height: '100px' }}></div>
+        <div style={style.wrapper} >
+          <div ref={this.reviewInput}>
+            <ReviewList className='reviewList' reviews={this.state.reviews} showModal={this.state.showModal} />
+            <ReadMore showMoreButton={this.state.showMoreButton} handleSwitch={this.handleSwitch} reviews={this.state.reviews} />
+          </div>
         </div>
-        <ReviewList className='reviewList' reviews={this.state.reviews} showModal={this.state.showModal} />
-        <ReadMore showMoreButton={this.state.showMoreButton} handleSwitch={this.handleSwitch} reviews={this.state.reviews} />
       </div>
     );
   }

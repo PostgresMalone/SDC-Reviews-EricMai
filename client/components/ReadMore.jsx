@@ -9,7 +9,7 @@ const ReadMore = (props) => {
     )
   } else {
     return (
-      <a href='#' style={style.showReviews} onClick={props.handleSwitch}>Hide all reviews</a>
+      <a href='#' style={style.hideReviews} onClick={() => props.handleSwitch}>Hide all reviews</a>
     )
   }
 };
