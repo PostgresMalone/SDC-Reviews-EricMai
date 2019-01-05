@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 
-mongoose.connect('mongodb://localhost/airbnb', { useNewUrlParser: true }, err => {
+mongoose.connect('mongodb://localhost/reviewDB', { useNewUrlParser: true }, err => {
   if (err) {
     return console.log('Failed in connecting to MongoDB.');
   }
