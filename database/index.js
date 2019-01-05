@@ -37,7 +37,6 @@ let save = () => {
     if (err) {
       console.error(err);
     } else {
-      console.log('Database Cleared hello');
       fs.readFile(path.resolve(__dirname, 'data.txt'), (err, data) => {
         if (err) {
           return console.log('Error in reading file.', err);

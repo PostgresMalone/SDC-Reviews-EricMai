@@ -5,11 +5,11 @@ const ReadMore = (props) => {
   var numberOfReviews = props.reviews.length;
   if (props.showMoreButton) {
     return (
-      <a href='#reviewInput' style={style.showReviews} onClick={props.handleSwitch}>Read all {numberOfReviews} reviews</a>
+      <a name='reviewInput' style={style.showReviews} onClick={props.handleSwitch}>Show all {numberOfReviews} reviews</a>
     )
   } else {
     return (
-      <a href='#reviewInput' style={style.hideReviews} onClick={props.handleSwitch}>Hide all reviews</a>
+      <a name='reviewInput' style={style.hideReviews} onClick={props.handleSwitch}>Hide all reviews</a>
     )
   }
 };
