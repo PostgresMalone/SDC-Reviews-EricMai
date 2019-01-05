@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 
-mongoose.connect('mongodb://localhost/reviewDB', { useNewUrlParser: true }, err => {
+mongoose.connect('mongodb://172.17.0.2/reviewDB', { useNewUrlParser: true }, err => {
   if (err) {
     return console.log('Failed in connecting to MongoDB.');
   }
@@ -33,20 +33,20 @@ let reviewSchema = mongoose.Schema({
 let Review = mongoose.model('Review', reviewSchema);
 
 let save = () => {
-  fs.readFile(path.resolve(__dirname, 'data.txt'), (err, data) => {
+  Review.deleteMany({}, (err) => {
     if (err) {
-      return console.log('Error in reading file.', err);
-    }
-    const parsed = JSON.parse(data);
-    parsed.forEach(data => {
-      var reviewTosave = new Review(data);
-      reviewTosave.save((err) => {
+      console.error(err);
+    } else {
+      console.log('Database Cleared hello');
+      fs.readFile(path.resolve(__dirname, 'data.txt'), (err, data) => {
         if (err) {
-          return console.log('Error in saving.', err);
+          return console.log('Error in reading file.', err);
         }
-        console.log('Success in saving!');
+        const parsed = JSON.parse(data);
+        Review.insertMany(parsed)
+          .then(() => process.exit());
       });
-    });
+    }
   });
 };
 
