@@ -42,4 +42,29 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
+### CRUD ###
 
+Create 
+  Method: POST
+  Api:'/:listing_id/reviews'
+  Input: Null
+  Output: Null
+  Used: Not used
+Read
+  Method: GET
+  Api:'/:listing_id/reviews'
+  Input: Null
+  Output: Database Review Data , Host Data, User Data
+  Used: Used to retrieve page data
+Update
+  Method: PUT
+  Api:'/:listing_id/reviews'
+  Input: Null
+  Output: Null
+  Used: Not used
+Delete
+  Method: DELETE
+  Api:'/:listing_id/reviews'
+  Input: Null
+  Output: Null
+  Used:  Not used 
