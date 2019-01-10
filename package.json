@@ -17,7 +17,8 @@
   "scripts": {
     "webpack": "webpack -p",
     "test": "jest --coverage",
-    "docker": "node database/seeding.js && nodemon server/index.js"
+    "docker": "node database/seeding.js && nodemon server/index.js",
+    "seed": "node ./seeder.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -43,6 +44,7 @@
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "css-loader": "^2.1.0",
+    "csv-stringify": "^5.1.2",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "enzyme-to-json": "^3.3.5",
