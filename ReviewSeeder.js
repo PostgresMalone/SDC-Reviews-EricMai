@@ -39,14 +39,14 @@ let data = ()=>{
       userID,
       sentence(),
       createdAt()
-    ].join(',')+'\n';
+    ].join()+'\n';
 } ;
 let column = ["id","listingId","content","userid","hostComment", "createdAt"]
 //100mil
 //2000
 for (let j = 0; j < 1; j++) {
     const stream = fs.createWriteStream(`./TestingData/ReviewFiles/my${j}.csv`);
-    stream.write(column.join(',') + '\n')
+    stream.write(column.join() + '\n')
     writeOneMillionTimes(stream, data )
 }
 //75000
@@ -62,7 +62,6 @@ function writeOneMillionTimes(writer, data) {
           start++
         } else {
           ok = writer.write(data());
-        //   console.log(ok)
           start++
         }
       } 

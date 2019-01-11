@@ -38,7 +38,7 @@ let data = () => {
       ranNames(),
       `https://randomuser.me/api/portraits/${gender[gPicker]}/${picture}.jpg`,
       createdAt()
-    ].join(",") + "\n"
+    ].join() + "\n"
   );
 };
 let column = ['id', 'userName', 'userPicture', 'createdAt'];
@@ -46,7 +46,7 @@ let column = ['id', 'userName', 'userPicture', 'createdAt'];
 
 for (let j = 0; j < 1; j++) {
   const stream = fs.createWriteStream(`./TestingData/userfiles/my${j}.csv`);
-  stream.write(column.join(',') + '\n');
+  stream.write(column.join() + '\n');
   writeOneMillionTimes(stream, data);
 }
 
