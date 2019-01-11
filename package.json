@@ -18,7 +18,9 @@
     "webpack": "webpack -p",
     "test": "jest --coverage",
     "docker": "node database/seeding.js && nodemon server/index.js",
-    "seed": "node ./seeder.js"
+    "reviewseeder": "node ./ReviewSeeder.js",
+    "userseeder": "node ./UserSeeder.js",
+    "roomseeder": "node ./RoomSeeder.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
