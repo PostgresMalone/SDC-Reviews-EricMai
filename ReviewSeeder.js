@@ -62,7 +62,6 @@ function writeOneMillionTimes(writer, data) {
           start++
         } else {
           ok = writer.write(data());
-        //   console.log(ok)
           start++
         }
       } 
