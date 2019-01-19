@@ -18,12 +18,17 @@ CREATE TABLE users (
 
 CREATE TABLE reviews (
     id INT NOT NULL,
-    listingid INT NOT NULL references listing(id),
+    listingid BIGINT NOT NULL references listing(id),
     content TEXT,
-    userid INT NOT NULL references users(id),
+    userid BigINT NOT NULL references users(id),
     hostComment TEXT,
     createdAt TEXT
 );
-COPY listing from 'D:\Program Files\Git\SDC\SDC-Reviews-EricMai\TestingData\listingfiles\my0.csv' CSV HEADER; 
-COPY users from 'D:\Program Files\Git\SDC\SDC-Reviews-EricMai\TestingData\userfiles\my0.csv' CSV HEADER; 
-COPY reviews from 'D:\Program Files\Git\SDC\SDC-Reviews-EricMai\TestingData\reviewsfiles\my0.csv' CSV HEADER; 
+
+-- CREATE INDEX listing_id ON listing (id);
+-- Create INDEX users_id ON users(id);
+-- CREATE INDEX review_ids ON reviews (listingid , userid);
+
+-- COPY listing from 'D:\Program Files\Git\SDC\SDC-Reviews-EricMai\AllData\listingfiles\sdc0.csv' CSV HEADER; 
+-- COPY users from 'D:\Program Files\Git\SDC\SDC-Reviews-EricMai\AllData\userfiles\sdc0.csv' CSV HEADER; 
+-- COPY reviews from 'D:\Program Files\Git\SDC\SDC-Reviews-EricMai\AllData\reviewsfiles\sdc0.csv' CSV HEADER; 

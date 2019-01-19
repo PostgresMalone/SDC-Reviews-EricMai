@@ -4,8 +4,8 @@ const faker = require("faker");
 const ranNames = faker.name.findName;
 const createdAt = faker.date.recent;
 const randomNumber = faker.random.number;
-const now = Date.now() / 1000;
-const start = 0;
+let now = Date.now() / 1000;
+let start = 0;
 //10mil- host
 //30mil- user
 //300mill- comments
@@ -28,15 +28,15 @@ const column = ['id', 'hostName', 'hostPicture', 'createdAt'];
 //10mil
 
 for (let j = 0; j < 1; j++) {
-  const stream = fs.createWriteStream(`./TestingData/listingfiles/my${j}.csv`);
+  const stream = fs.createWriteStream(`./AllDAta/listingfiles/sdc${j}.csv`);
   stream.write(column.join() + '\n');
   writeOneMillionTimes(stream, data);
 }
 
 function writeOneMillionTimes(writer, data) {
-  let i = 10000;
+  let i = 10000000;
   write();
-  async function write() {
+  function write() {
     let ok = true;
     while (i > 0 && ok) {
       i--;
@@ -49,7 +49,7 @@ function writeOneMillionTimes(writer, data) {
       }
     }
     if (i > 0) {
-      await writer.once('drain', write);
+      writer.once('drain', write);
     }
   }
 }

@@ -24,7 +24,12 @@ coverage
 build/
 dist/
 
-TestingData/
+AllData/
 Reviews/
 *.csv
 
+k6.js
+newrelic.js
+
+TestingData/
+pg_config.js

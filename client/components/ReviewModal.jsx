@@ -20,19 +20,25 @@ class ReviewModal extends React.Component {
   fetchMoreData() {
     var offset = this.state.offset;
     var limit = 10;
-    axios.get(`/1/reviews?limit=${limit}&offset=${offset}`)
+    axios.get(`/reviews`,{
+      params:{
+        id: window.location.href.split('/')[4],
+        limit: 'ALL'
+      }})
       .then((data) => {
+        console.log(data.data , 'something')
         var reviews = data.data;
         if (reviews.length === 0) {
           this.setState({ hasMore: false });
           return;
         }
-
-        for (var i = 0; i < reviews.length; i++) {
-          this.setState({ reviewList: this.state.reviewList.concat([<SingleReview review={reviews[i]} key={Math.random()} showModal={this.props.showModal} />]) });
-        }
+        console.log(this.props.showModal)
+        // for (var i = 0; i < reviews.length; i++) {
+        //   this.setState({ reviewList: this.state.reviewList.concat([<SingleReview review={reviews[i]} key={Math.random()} showModal={this.props.showModal} />]) });
+        // }
 
         this.setState({
+          reviewList : reviews,
           offset: this.state.offset + reviews.length
         });
 
@@ -50,13 +56,17 @@ class ReviewModal extends React.Component {
           Reviews
         </div>
         <InfiniteScroll
-          dataLength={this.state.reviewList.length}
+          // dataLength={this.state.reviewList.length}
           next={this.fetchMoreData}
           hasMore={this.state.hasMore}
           loader={<h4>Loading...</h4>}
         >
           <div>
-            {this.state.reviewList}
+            {this.state.reviewList.map((item)=>{
+              return (
+              <SingleReview review={item} key= {Math.random()} showModal={this.props.showModal} />
+              )
+            })}
           </div>
         </InfiniteScroll>
       </div>
