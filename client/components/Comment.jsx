@@ -2,10 +2,10 @@ import React from 'react';
 import ReadMoreAndLess from 'react-read-more-less';
 import style from './style.css.js';
 const Comment = (props) => {
-  var hostComment = props.review.hostComment
-  var hostName = props.review.hostName;
-  var hostPicture = props.review.hostPicture;
-  var createdAt = new Date(props.review.createdAt);
+  var hostComment = props.review.hostcomment
+  var hostName = props.review.hostname;
+  var hostPicture = props.review.hostpicture;
+  var createdAt = new Date(props.review.createdat);
 
   var monthList = new Array();
   monthList[0] = "January";

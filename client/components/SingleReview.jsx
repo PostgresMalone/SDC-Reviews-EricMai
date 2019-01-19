@@ -3,10 +3,10 @@ import ReadMoreAndLess from 'react-read-more-less';
 import Comment from './Comment.jsx'
 import style from './style.css.js';
 const SingleReview = (props) => {
-  var reviewerName = props.review.reviewerName;
+  var reviewerName = props.review.reviewername;
   var content = props.review.content;
-  var reviewerPic = props.review.reviewerPicture;
-  var createdAt = Date.parse(props.review.createdAt);
+  var reviewerPic = props.review.reviewerpicture;
+  var createdAt = Date.parse(props.review.createdat);
 
   const timeBetween = (createdAt) => {
     var current = Date.parse(new Date())

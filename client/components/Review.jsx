@@ -1,8 +1,9 @@
-import React from 'react';
-import axios from 'axios';
-import ReviewList from './ReviewList.jsx';
-import ReadMore from './ReadMore.jsx';
-import style from './style.css.js';
+import React from "react";
+import axios from "axios";
+import ReviewList from "./ReviewList.jsx";
+import ReadMore from "./ReadMore.jsx";
+import style from "./style.css.js";
+
 
 class Review extends React.Component {
   constructor(props) {
@@ -10,18 +11,23 @@ class Review extends React.Component {
     this.state = {
       reviews: [],
       showModal: false,
-      showMoreButton: true,
+      showMoreButton: true
     };
     this.handleSwitch = this.handleSwitch.bind(this);
     this.reviewInput = React.createRef();
   }
 
   getReviews() {
-    axios.get('/1/reviews')
-      .then((data) => {
+    axios
+      .get("/reviews", {
+        params:{
+          id: window.location.href.split('/')[4],
+          limit: 10
+        }})
+      .then(data => {
         this.setState({ reviews: data.data });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   }
@@ -39,10 +45,18 @@ class Review extends React.Component {
 
   render() {
     return (
-      <div style={style.wrapper} >
-        <div ref={this.reviewInput} className='reviewInput'>
-          <ReviewList className='reviewList' reviews={this.state.reviews} showModal={this.state.showModal} />
-          <ReadMore showMoreButton={this.state.showMoreButton} handleSwitch={this.handleSwitch} reviews={this.state.reviews} />
+      <div style={style.wrapper}>
+        <div ref={this.reviewInput} className="reviewInput">
+          <ReviewList
+            className="reviewList"
+            reviews={this.state.reviews}
+            showModal={this.state.showModal}
+          />
+          <ReadMore
+            showMoreButton={this.state.showMoreButton}
+            handleSwitch={this.handleSwitch}
+            reviews={this.state.reviews}
+          />
         </div>
       </div>
     );
@@ -50,7 +64,3 @@ class Review extends React.Component {
 }
 
 export default Review;
-
-
-
-
