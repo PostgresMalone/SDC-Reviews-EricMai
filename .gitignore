@@ -32,3 +32,4 @@ k6.js
 newrelic.js
 
 TestingData/
+pg_config.js
