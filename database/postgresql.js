@@ -1,5 +1,5 @@
 const pg = require("pg");
-const config = require('./pg_config.js')
+const config = require('../pg_config.js')
 // const connection = 'postgres://localhost:5432/sdctesting'
 const client = new pg.Client(config);
 
